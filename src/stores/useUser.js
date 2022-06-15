@@ -13,6 +13,8 @@ export const useUser = defineStore('userStore', {
   }),
   persist: true,
   getters: {
-    cardImage(state) { return state.cardUrl }
+    cardImage(state) { return state.cardUrl },
+    getCardId(state) { return state.cardId }
+
   }
 })

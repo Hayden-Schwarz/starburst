@@ -1,42 +1,55 @@
 <template>
-<div>
-  <p class="strburst-head">My Card</p>
-  <div class="spr-nova-card">
-    <img v-bind:src="user.cardImage" alt="card" class="spr-nova-card" >
+  <div>
+    <p class="strburst-head">My Card: ID {{ user.getCardId }}</p>
+    <div class="spr-nova-card">
+      <img ref="image" :src="blobUrl" alt="card" class="spr-nova-card">
+    </div>
   </div>
-</div>
 </template>
 
 <script>
 import { useUser } from '@/stores/useUser'
+import { useCardImage } from '@/stores/useCardImage'
+
 
 export default {
-  name: "CardResult",
-  setup(){
+
+  name: 'CardResult',
+
+  setup () {
     const user = useUser()
-    console.log("Card Image " + user.cardImage)
-    return { user }
+    const cardImage = useCardImage()
+    const blobUrl = URL.createObjectURL(cardImage.getImage)
+    return { user, blobUrl}
+  },
+  methods: {
+    loaded () {
+      if (this.blobUrl) URL.revokeObjectURL(this.blobUrl)
+    },
   },
 }
+
 </script>
 
 <style scoped>
 
-div.spr-nova-card{
+div.spr-nova-card {
   max-width: 100%;
 }
-img.spr-nova-card{
+
+img.spr-nova-card {
   width: 90%;
 
 }
-div.main{
+
+div.main {
 
 }
-p.strburst-head{
-  font-size: 25pt;
+
+p.strburst-head {
+  font-size: 20pt;
   text-align: left;
   margin-top: 10px;
-  margin-left: 20px;
-;
+  margin-left: 20px;;
 }
 </style>

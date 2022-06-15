@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Slide>
+    <Slide :closeOnNavigation="true">
       <router-link to="/">Home</router-link>
       <router-link to="/card">Card</router-link>
 
@@ -14,21 +14,10 @@
 </template>
 
 <script>
-import router from '@/router'
+// import router from '@/router'
 
 export default {
   name: 'HeaderComponent',
-  setup(){
-    let route = router.currentRoute.value.name
-    console.log(route)
-    return { route }
-  },
-  computed(){
-    let route2 = router.currentRoute.value.name
-    console.log(route2)
-    return { route2 }
-
-  }
 }
 </script>
 

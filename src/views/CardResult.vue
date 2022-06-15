@@ -1,28 +1,22 @@
 <template>
 <div>
-  <h1>Your sprNova card</h1>
+  <p class="strburst-head">My Card</p>
   <div class="spr-nova-card">
-    <img v-bind:src="cardUrl" alt="card" class="spr-nova-card" >
+    <img v-bind:src="user.cardImage" alt="card" class="spr-nova-card" >
   </div>
 </div>
 </template>
 
 <script>
-
-import {store} from "@/store";
+import { useUser } from '@/stores/useUser'
 
 export default {
   name: "CardResult",
-  mounted() {
-    console.log(store.userinfo);
-
-
+  setup(){
+    const user = useUser()
+    console.log("Card Image " + user.cardImage)
+    return { user }
   },
-  data(){
-    return {
-      cardUrl: store.cardurl
-    }
-  }
 }
 </script>
 
@@ -32,6 +26,17 @@ div.spr-nova-card{
   max-width: 100%;
 }
 img.spr-nova-card{
-  width: 100%;
+  width: 90%;
+
+}
+div.main{
+
+}
+p.strburst-head{
+  font-size: 25pt;
+  text-align: left;
+  margin-top: 10px;
+  margin-left: 20px;
+;
 }
 </style>

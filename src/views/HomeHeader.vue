@@ -1,10 +1,5 @@
 <template>
   <div>
-    <Slide>
-      <router-link to="/">Home</router-link>
-      <router-link to="/card">Card</router-link>
-
-    </Slide>
     <div class="starburst-logo">
       <router-link to="/">
         <img alt="Starburst Logo" src="../assets/starburst-logo-2.png" class="starburst-logo">
@@ -34,23 +29,22 @@ export default {
 
 <style scoped>
 img.starburst-logo {
-  height: 65pt;
-  padding-top: 15pt;
+max-width: 70%;
 }
 
 div.starburst-logo {
   background-color: #893594;
   text-align: center;
-  border-bottom-left-radius: 40% 10pt;
-  border-bottom-right-radius: 40% 10pt;
-  height: 90pt
-
+  height: 200pt;
+  padding-top: 10px;
+  border-bottom-left-radius: 50% 10%;
+  border-bottom-right-radius: 50% 5%;
 }
 
 img.partner-logo {
   position: center;
   vertical-align: bottom;
-  height: 75px;
+  height: 150px;
   text-align: center;
 }
 
@@ -61,7 +55,4 @@ div.partner-logo {
 
 }
 
-.bm-menu {
-  background: white!important;
-}
 </style>

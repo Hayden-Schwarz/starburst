@@ -1,26 +1,30 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import MainPage from '@/views/MainPage'
+import { createRouter, createWebHistory } from 'vue-router';
+
 
 const routes = [
   {
     path: '/',
-    alias: '/home',
     name: 'Home',
-    component: () => MainPage
+    component: () => import('../views/FrontPage')
+  },
+  {
+    path: '/new',
+    name: 'New User',
+    component: () => import('../views/MainPage')
   },
   {
     path: '/signup',
-    name: 'signup',
+    name: 'Signup',
     component: () => import('../views/SignUp')
   },
   {
     path: '/card',
-    name: 'card',
+    name: 'Card',
     component: () => import('../views/CardResult')
   },
   {
     path: '/promotion',
-    name: 'promotion',
+    name: 'Promotion',
     component: () => import('../views/PromotionDisplay')
   },
   {
@@ -30,7 +34,8 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+  },
+  { path: '/*', component: () =>import('../views/NotFound')}
 ]
 
 const router = createRouter({

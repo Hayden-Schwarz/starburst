@@ -1,6 +1,8 @@
 <template>
 <footer class="mt-auto">
-  footer
+  <div class="strburst-footer">
+
+  </div>
 </footer>
 </template>
 
@@ -11,5 +13,10 @@ export default {
 </script>
 
 <style scoped>
-
+.strburst-footer{
+  height: 40pt;
+  background: #FDB913;
+  border-top-left-radius: 40% 10pt;
+  border-top-right-radius: 40% 10pt;
+}
 </style>

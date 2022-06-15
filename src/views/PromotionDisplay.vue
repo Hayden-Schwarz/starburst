@@ -4,44 +4,42 @@
       <img src="../assets/insta-discount.png" alt="discount" class="promotion">
       <div class="promotion">
         <p class="promotion">
-          Discount Product
+          Get R10 off when you<br> spend R50 or more
           <br>
-          Discount Brand
-          <br>
-          Discount Price
+
         </p>
         <p class="terms">T&amp;Cs Apply</p>
       </div>
-      <div class="row description">
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+      <div class="row">
+        <div class="col-8">
           <p class="description">
-            Only available at <span style="color: red">Shop Name</span>
+            Only available at <span style="color: red">Roots Protea Glen</span>
             <br>
             Valid until 30 June 2020
             <br>
             1 per customer
           </p>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-          <img src="../assets/share.png" alt="share" class="share"
-               style="margin-top: 10%">
+        <div class="col-4 align-content-center">
+          <BIconShare class="share"></BIconShare>
+          <p class="share-text">Share</p>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-xl-6 col-md-6 col-sm-6 col-xs-6">
+      <div class="col-6">
         <img src="../assets/ad4.png" alt="advert" class="advert">
       </div>
-      <div class="col-xl-6 col-md-6 col-sm-6 col-xs-6">
+      <div class="col-6">
         <img src="../assets/ad4.png" alt="advert" class="advert">
       </div>
     </div>
 
-    <div>
-      <div class="col-xl-6 col-md-6 col-sm-6 col-xs-6">
+    <div class="row">
+      <div class="col-6">
         <img src="../assets/ad4.png" alt="advert" class="advert">
       </div>
-      <div class="col-xl-6 col-md-6 col-sm-6 col-xs-6">
+      <div class="col-6">
         <img src="../assets/ad4.png" alt="advert" class="advert">
       </div>
     </div>
@@ -50,7 +48,7 @@
 
 <script>
 export default {
-  name: "PromotionDisplay"
+  name: 'PromotionDisplay'
 }
 </script>
 
@@ -65,7 +63,7 @@ div.promotion {
 }
 
 p.promotion {
-  font-size: larger;
+  font-size: larger
 }
 
 p.terms {
@@ -77,19 +75,25 @@ p.terms {
 }
 
 div.description {
-  background-color: white;
+  background-color: white
 }
 
 p.description {
   text-align: left;
-  font-size: small;
+  font-size: x-small;
   margin-left: 3px;
 }
 
-img.share {
-  width: 100%;
-  margin-top: 10%;
-  margin-right: 10px;
+.share {
+  width: 2em;
+  height: 2em;
+  /*margin-top: 10%;*/
+  /*margin-right: 10px;*/
+  text-align: left;
+}
+.share-text{
+  font-size: x-small;
+  /*text-align: center;*/
 }
 
 img.advert {

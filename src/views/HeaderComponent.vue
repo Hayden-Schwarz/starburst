@@ -3,6 +3,7 @@
     <Slide :closeOnNavigation="true">
       <router-link to="/">Home</router-link>
       <router-link to="/card">Card</router-link>
+      <router-link to="/promotions">Promotions</router-link>
 
     </Slide>
     <div class="starburst-logo">

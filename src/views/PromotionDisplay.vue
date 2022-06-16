@@ -4,7 +4,7 @@
       <img src="../assets/insta-discount.png" alt="discount" class="promotion">
       <div class="promotion">
         <p class="promotion">
-          Get R10 off when you<br> spend R50 or more
+          {{deal.dealText}}
           <br>
 
         </p>
@@ -13,11 +13,13 @@
       <div class="row">
         <div class="col-8">
           <p class="description">
-            Only available at <span style="color: red">Roots Protea Glen</span>
+            Only available at <span style="color: red">{{deal.partnerName}}</span>
             <br>
-            Valid until 30 June 2020
+            Valid until {{ deal.endDate }}
+            <span v-if="deal.limit > 0">
             <br>
-            1 per customer
+            {{ deal.limit }} per customer
+            </span>
           </p>
         </div>
         <div class="col-4 align-content-center">
@@ -27,28 +29,29 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-6">
-        <img src="../assets/ad4.png" alt="advert" class="advert">
-      </div>
-      <div class="col-6">
-        <img src="../assets/ad4.png" alt="advert" class="advert">
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-6">
-        <img src="../assets/ad4.png" alt="advert" class="advert">
-      </div>
-      <div class="col-6">
-        <img src="../assets/ad4.png" alt="advert" class="advert">
+      <div class="col-6" v-for="advertiser in deal.advertisers" v-bind:key="advertiser.advertiserId">
+        <a :href="advertiser.advertiserUrl" target="_blank">
+        <img :src="advertiser.advertiserImage" alt="advert" class="advert">
+        </a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { useDeals } from '@/stores/useDeals'
+import { useRoute } from 'vue-router'
 export default {
-  name: 'PromotionDisplay'
+  name: 'PromotionDisplay',
+  setup(){
+
+    const route = useRoute()
+    const dealId = parseInt(route.params.id)
+    const deals = useDeals()
+    const deal = deals.getDealById(dealId)
+    console.log(deal)
+    return { deal }
+  }
 }
 </script>
 
@@ -63,7 +66,8 @@ div.promotion {
 }
 
 p.promotion {
-  font-size: larger
+  font-size: larger;
+  white-space: pre;
 }
 
 p.terms {

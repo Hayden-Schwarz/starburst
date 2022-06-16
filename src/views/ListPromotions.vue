@@ -31,7 +31,7 @@ export default {
     const deals = useDeals()
     CardDataService.getAllDeals().then(response => {
       deals.$patch({deals: response.data})
-      console.log(response.date)
+      console.log(response.data)
       console.log(deals.getDeals)
 
     })

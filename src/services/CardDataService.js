@@ -7,5 +7,8 @@ class CardDataService {
      create(data){
          return http.post('/cards', data)
     }
+  getAllDeals(){
+    return http.get(`/deals`)
+  }
 }
 export default new CardDataService()

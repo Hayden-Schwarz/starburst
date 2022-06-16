@@ -23,7 +23,12 @@ const routes = [
     component: () => import('../views/CardResult')
   },
   {
-    path: '/promotion',
+    path: '/promotions',
+    name: 'Promotion List',
+    component: () => import('../views/ListPromotions')
+  },
+  {
+    path: '/promotion/:id',
     name: 'Promotion',
     component: () => import('../views/PromotionDisplay')
   },

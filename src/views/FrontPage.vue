@@ -8,8 +8,8 @@
         <p class="strburst-title">My Card</p>
       </div>
       <div class="col-6 strburst-center">
-        <router-link to="/card"><img src="../assets/sprNova_square.png" alt="sprNova"
-                                     class="strburst-circle"> </router-link>
+        <router-link to="/promotions"><img src="../assets/starburst-square.png" alt="sprNova"
+                                     class="strburst-circle3"> </router-link>
         <p class="strburst-title">Current Promotions</p>
       </div>
     </div>
@@ -20,15 +20,15 @@
       </div>
     </div>
     <br><br>
-    <div class="row">
+    <div class="row" v-for="deal in deals.getDeals" v-bind:key="deal.dealId">
       <div class="col-1"></div>
       <div class="col-2">
-        <img src="../assets/roots-sqare.png" alt="Roots" class="strburst-circle2">
+        <img :src="deal.partnerImage" alt="Partner" class="strburst-circle2">
       </div>
       <div class="col-8">
-      <router-link to="/promotion">
-        <p class="strburst-btn">Get R10 off when you spend R50 or more</p>
-      </router-link>
+        <router-link :to="{name: 'Promotion', params: {id: deal.dealId} }">
+          <p class="strburst-btn">{{deal.description}}</p>
+        </router-link>
       </div>
     </div>
     <br>
@@ -40,13 +40,17 @@
 <script>
 import { useUser } from '@/stores/useUser'
 import router from '@/router'
+import { useDeals } from '@/stores/useDeals'
 export default {
   name: 'MainPage',
   setup(){
     const user = useUser()
+
     if (user.cardImage === ''){
       router.push('/new')
     }
+    const deals = useDeals()
+    return {deals}
   }
 
 }
@@ -97,7 +101,12 @@ p.mainpage-info {
   width: 75%;
   background: #fdb913;
 }
-
+.strburst-circle3{
+  border-radius: 50%;
+  text-align: center;
+  width: 75%;
+  background: #893494;
+}
 .strburst-circle2{
   border-radius: 50%;
   text-align: center;

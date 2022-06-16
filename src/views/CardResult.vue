@@ -3,9 +3,9 @@
     <p class="strburst-head">My Card</p>
     <div class="spr-nova-card main">
       <img ref="image" src="../assets/card_top.png" alt="card" class="spr-nova-card">
-        <vue-barcode :value="user.getCardId"
-                     :options="{ displayValue: true, fontsize: 10, height: 50 } ">
-
+        <vue-barcode :value="user.getCardId" format="code128"
+                     :options='{ displayValue: true, fontsize: 10, height: 50,  }'>
+        Card ID: {{user.getCardId }}
         </vue-barcode>
       <img ref="image" src="../assets/card_bottom.png" alt="card" class="spr-nova-card">
     </div>
@@ -19,15 +19,10 @@ export default {
   name: 'CardResult',
   setup () {
     const user = useUser()
+    console.log(useUser.getCardId)
     return { user }
   },
-  // data(){
-  //   return{
-  //     cardId: user.getCardId
-  //   }
-  // }
 }
-console.log(useUser.getCardId)
 </script>
 
 <style scoped>

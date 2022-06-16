@@ -6,6 +6,7 @@ export const useDeals = defineStore('dealStore', {
   }),
   persist: true,
   getters: {
-    getDeals(state) { return state.deals }
+    getDeals(state) { return state.deals },
+    getDealById(state) {return(dealId)=>state.deals.find((deal) => deal.dealId === dealId)}
   }
 })

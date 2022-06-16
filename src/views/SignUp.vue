@@ -59,6 +59,7 @@ import { reactive, computed } from 'vue'
 // import router from "@/router"
 import CardDataService from '@/services/CardDataService'
 import { useUser } from '@/stores/useUser'
+import { useDeals} from '@/stores/useDeals'
 
 export default {
 
@@ -133,10 +134,24 @@ export default {
           // console.log(store.userinfo)
 
           this.user.$patch({
-            cardUrl: response.data.card_image,
-            cardId: response.data.card_number
+            cardUrl: response.data.cardImage,
+            cardId: response.data.cardNumber,
+            userId: response.data.userId,
           })
-          this.$router.push('/card')
+          CardDataService.getAllDeals().then(
+            response => {
+              const deals = useDeals()
+              deals.$reset()
+              deals.$patch({deals: response.data})
+              console.log(response.data)
+
+              this.$router.push('/card')
+
+            }
+          ).catch( error => {
+              console.log(error)
+            }
+          )
 
         })
         .catch(e => {

@@ -1,55 +1,63 @@
 <template>
   <div>
-    <p class="strburst-head">My Card: ID {{ user.getCardId }}</p>
-    <div class="spr-nova-card">
-      <img ref="image" :src="blobUrl" alt="card" class="spr-nova-card">
+    <p class="strburst-head">My Card</p>
+    <div class="spr-nova-card main">
+      <img ref="image" src="../assets/card_top.png" alt="card" class="spr-nova-card">
+        <vue-barcode :value="user.getCardId"
+                     :options="{ displayValue: true, fontsize: 10, height: 50 } ">
+
+        </vue-barcode>
+      <img ref="image" src="../assets/card_bottom.png" alt="card" class="spr-nova-card">
     </div>
   </div>
 </template>
 
 <script>
 import { useUser } from '@/stores/useUser'
-import { useCardImage } from '@/stores/useCardImage'
-
 
 export default {
-
   name: 'CardResult',
-
   setup () {
     const user = useUser()
-    const cardImage = useCardImage()
-    const blobUrl = URL.createObjectURL(cardImage.getImage)
-    return { user, blobUrl}
+    return { user }
   },
-  methods: {
-    loaded () {
-      if (this.blobUrl) URL.revokeObjectURL(this.blobUrl)
-    },
-  },
+  // data(){
+  //   return{
+  //     cardId: user.getCardId
+  //   }
+  // }
 }
-
+console.log(useUser.getCardId)
 </script>
 
 <style scoped>
 
 div.spr-nova-card {
-  max-width: 100%;
+  text-align: center;
 }
 
 img.spr-nova-card {
   width: 90%;
 
 }
-
-div.main {
+canvas.barcode{
 
 }
-
+div.main {
+}
+div.barcode{
+  width: 90%;
+  text-align: center;
+}
 p.strburst-head {
   font-size: 20pt;
   text-align: left;
   margin-top: 10px;
   margin-left: 20px;;
+}
+
+strburst-barcode {
+  height: 40pt;
+  font-size: 50pt;
 }
 </style>

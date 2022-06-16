@@ -59,12 +59,6 @@ import { reactive, computed } from 'vue'
 // import router from "@/router"
 import CardDataService from '@/services/CardDataService'
 import { useUser } from '@/stores/useUser'
-import axios from 'axios'
-import { useCardImage} from '@/stores/useCardImage'
-
-// import axios from "axios"
-// import http from "@/http-common"
-// import http from "@/http-common"
 
 export default {
 
@@ -142,19 +136,7 @@ export default {
             cardUrl: response.data.card_image,
             cardId: response.data.card_number
           })
-          const config = {
-            url: response.data.card_image,
-            method: 'get',
-            responseType: 'blob'
-          }
-          axios.request(config)
-            .then(response => {
-              const cardImage = useCardImage()
-              cardImage.$patch({image: response.data})
-              console.log(cardImage.getImage)
-              this.$router.push('/card')
-
-            })
+          this.$router.push('/card')
 
         })
         .catch(e => {

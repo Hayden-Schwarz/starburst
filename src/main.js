@@ -9,7 +9,7 @@ import {BIconShare} from 'bootstrap-icons-vue'
 import VueSocialSharing from 'vue-social-sharing'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import { Slide } from 'vue3-burger-menu'
-/* import specific icons */
+import VueBarcode from '@chenfengyuan/vue-barcode';
 
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
@@ -17,6 +17,7 @@ pinia.use(piniaPluginPersistedstate)
 createApp(App)
   .component('BIconShare',BIconShare)
   .component('Slide', Slide)
+  .component(VueBarcode.name, VueBarcode)
   .use(pinia)
   .use(VueSocialSharing)
   .use(router).mount('#app')

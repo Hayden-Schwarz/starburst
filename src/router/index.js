@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-
 const routes = [
   {
     path: '/',
@@ -32,6 +31,22 @@ const routes = [
     name: 'Promotion',
     component: () => import('../views/PromotionDisplay')
   },
+  {
+    path: '/result/',
+    name: 'Result',
+    component: () => import('../views/AfterSignup')
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: () => import('../views/AboutView')
+  },
+  // {
+  //   path: '/share',
+  //   name: 'Share',
+  //   component: () => import('../views/SharePage')
+  //
+  // },
   {
     path: '/about',
     name: 'about',

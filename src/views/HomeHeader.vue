@@ -29,16 +29,16 @@ export default {
 
 <style scoped>
 img.starburst-logo {
-max-width: 70%;
+max-width: 60%;
+  height: 60pt;
+  display: inherit;
 }
 
 div.starburst-logo {
   background-color: #893594;
   text-align: center;
-  height: 200pt;
+  height: 75pt;
   padding-top: 10px;
-  border-bottom-left-radius: 50% 10%;
-  border-bottom-right-radius: 50% 5%;
 }
 
 img.partner-logo {
@@ -54,5 +54,4 @@ div.partner-logo {
   width: 33%;
 
 }
-
 </style>

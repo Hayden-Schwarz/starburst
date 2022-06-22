@@ -19,6 +19,9 @@ export const useUser = defineStore('userStore', {
     },
     getCardId (state) {
       return state.cardId
+    },
+    getUserId (state) {
+      return state.userId
     }
 
   }

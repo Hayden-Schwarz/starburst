@@ -1,4 +1,7 @@
+// const path = require('path');
+
 module.exports = {
+
 	globDirectory: 'dist/',
 	globPatterns: [
 		'**/*.{css,ico,png,svg,html,js,json,txt}'
@@ -7,5 +10,5 @@ module.exports = {
 	ignoreURLParametersMatching: [
 		/^utm_/,
 		/^fbclid$/
-	]
+	],
 };

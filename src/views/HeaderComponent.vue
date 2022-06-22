@@ -1,11 +1,13 @@
 <template>
   <div>
-    <Slide :closeOnNavigation="true">
-      <router-link to="/">Home</router-link>
-      <router-link to="/card">Card</router-link>
-      <router-link to="/promotions">Promotions</router-link>
-
-    </Slide>
+    <div v-if="$route.path !== '/signup'">
+      <Slide :closeOnNavigation="true" >
+        <router-link to="/">Home</router-link>
+        <router-link to="/card">Card</router-link>
+        <router-link to="/promotions">Promotions</router-link>
+        <router-link to="/about">About us</router-link>
+      </Slide>
+    </div>
     <div class="starburst-logo">
       <router-link to="/">
         <img alt="Starburst Logo" src="../assets/starburst-logo-2.png" class="starburst-logo">
@@ -25,22 +27,22 @@ export default {
 <style scoped>
 img.starburst-logo {
   height: 65pt;
-  padding-top: 15pt;
+  padding-top: 10pt;
+  text-align: center;
+  display: inherit;
 }
 
 div.starburst-logo {
   background-color: #893594;
   text-align: center;
-  border-bottom-left-radius: 40% 10pt;
-  border-bottom-right-radius: 40% 10pt;
-  height: 90pt
+  height: 75pt
 
 }
 
 img.partner-logo {
   position: center;
   vertical-align: bottom;
-  height: 75px;
+  height: 75pt;
   text-align: center;
 }
 
@@ -52,6 +54,7 @@ div.partner-logo {
 }
 
 .bm-menu {
-  background: white!important;
+  background: white !important;
 }
+
 </style>

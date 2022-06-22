@@ -6,12 +6,15 @@
       <div class="col-10">
         <p class="heading">Current Promotions</p>
       </div>
+      <br>
+      <br>
       <div class="row" v-for="deal in deals.getDeals" v-bind:key="deal.dealId">
         <div class="col-1"></div>
+
         <div class="col-2">
           <img :src="deal.partnerImage" alt="Partner" class="strburst-circle2">
         </div>
-        <div class="col-8">
+        <div class="col-8" style="margin-bottom: 10pt">
           <router-link :to="{name: 'Promotion', params: {id: deal.dealId} }">
             <p class="strburst-btn">{{ deal.description }}</p>
           </router-link>
@@ -28,6 +31,7 @@ import CardDataService from '@/services/CardDataService'
 export default {
   name: 'ListPromotions',
   setup(){
+
     const deals = useDeals()
     CardDataService.getAllDeals().then(response => {
       deals.$patch({deals: response.data})
@@ -45,8 +49,8 @@ export default {
 p.heading{
   font-size: 20pt;
   text-align: left;
+  border-bottom: 10pt;
 }
-
 .strburst-btn {
   font-size: 8pt;
   text-decoration-line: unset;
@@ -61,6 +65,8 @@ p.heading{
   border-radius: 50%;
   text-align: center;
   width: 100%;
-  background: #fdb913;
+  border-color: #fdb913;
+  border-style: solid;
+  border-width: 1pt;
 }
 </style>

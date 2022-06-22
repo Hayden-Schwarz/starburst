@@ -1,9 +1,7 @@
 <template>
-<footer class="mt-auto">
-  <div class="strburst-footer">
-
-  </div>
-</footer>
+<div class="strburst-footer mt-auto">
+    <p class="strburst-copy">&copy;SofServ</p>
+</div>
 </template>
 
 <script>
@@ -14,9 +12,13 @@ export default {
 
 <style scoped>
 .strburst-footer{
-  height: 40pt;
+  height: 30pt;
   background: #FDB913;
-  border-top-left-radius: 40% 10pt;
-  border-top-right-radius: 40% 10pt;
+  margin-top: 10pt;
+  text-align: center;
+}
+.strburst-copy{
+  font-size: 8pt;
+  padding-top: 10pt;
 }
 </style>

@@ -1,13 +1,15 @@
 <template>
   <div>
     <div class="row">
+      <br>
+      <br>
       <div class="col-12">
         <p class="mainpage-info">
           Enjoy a galaxy of savings<br>at your fingertips.
         </p>
       </div>
     </div>
-    <br><br>
+    <br><br><br><br>
     <div class="row">
       <div class="col-12 strburst-center">
         <router-link to="/signup" class="strburst-btn strburst-btn-primary">Signup</router-link>
@@ -17,6 +19,9 @@
 
     <br>
     <br>
+    <br>
+    <br>
+    <div class="mt-auto">
     <div class="row">
       <div class="col-4 strburst-right">
         <router-link to="/signup" class="strburst-btn">Promotions</router-link>
@@ -28,8 +33,7 @@
         <router-link to="/signup" class="strburst-btn">Our Partners</router-link>
       </div>
     </div>
-    <br>
-    <br>
+    </div>
 
   </div>
 </template>

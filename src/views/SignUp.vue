@@ -145,7 +145,7 @@ export default {
               deals.$patch({deals: response.data})
               console.log(response.data)
 
-              this.$router.push('/card')
+              this.$router.push('/result')
 
             }
           ).catch( error => {
